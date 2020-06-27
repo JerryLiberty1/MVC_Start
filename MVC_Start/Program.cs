@@ -17,6 +17,7 @@ namespace MVC_Start
       BuildWebHost(args).Run();
             Console.WriteLine("Jerry is smart person who loves cookies"); //Comments by Manoj
             Console.WriteLine("Jerry is great"); //Comments by Manoj
+            Console.WriteLine("Jerry is great and loves cookies and yogurt");
 
 
 
