@@ -15,9 +15,16 @@ namespace MVC_Start
     public static void Main(string[] args)
     {
       BuildWebHost(args).Run();
-    }
+            Console.WriteLine("Jerry is smart person who loves cookies"); //Comments by Manoj
+            Console.WriteLine("Jerry is great"); //Comments by Manoj
+            Console.WriteLine("Jerry is great and loves cookies and yogurt");
 
-    public static IWebHost BuildWebHost(string[] args) =>
+
+
+
+        }
+
+        public static IWebHost BuildWebHost(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .UseStartup<Startup>()
             .Build();
