@@ -9,7 +9,7 @@ namespace MVC_Start.Controllers
 {
   public class HomeController : Controller
   {
-    public IActionResult Index()
+    public IActionResult Index(int id)
     {
       return View();
     }
@@ -19,16 +19,47 @@ namespace MVC_Start.Controllers
       return View();
     }
 
-    /// <summary>
-    /// Replicate the chart example in the JavaScript presentation
-    /// 
-    /// Typically LINQ and SQL return data as collections.
-    /// Hence we start the example by creating collections representing the x-axis labels and the y-axis values
-    /// However, chart.js expects data as a string, not as a collection.
-    ///   Hence we join the elements in the collections into strings in the view model
-    /// </summary>
-    /// <returns>View that will display the chart</returns>
-    public ViewResult DemoChart()
+        public IActionResult Contact()
+        {
+            GuestContact contact = new GuestContact();
+
+            contact.Name = "Jerry Marks";
+            contact.Email = "gmarks1@usf.edu";
+            contact.Phone = "815-508-6099";
+            contact.City = "St. Petersbug";
+            contact.State = "Florida";
+
+            /* alternate syntax to initialize object 
+            GuestContact contact2 = new GuestContact
+            {
+              Name = "Manish Agrawal",
+              Email = "magrawal@usf.edu",
+              Phone = "813-974-6716"
+            };
+            */
+
+            ViewData["Message"] = "Your contact page.";
+
+            return View(contact);
+        }
+      
+        [HttpPost]
+        public IActionResult Contact(GuestContact contact)
+        {
+            return View(contact);
+        }
+
+
+        /// <summary>
+        /// Replicate the chart example in the JavaScript presentation
+        /// 
+        /// Typically LINQ and SQL return data as collections.
+        /// Hence we start the example by creating collections representing the x-axis labels and the y-axis values
+        /// However, chart.js expects data as a string, not as a collection.
+        ///   Hence we join the elements in the collections into strings in the view model
+        /// </summary>
+        /// <returns>View that will display the chart</returns>
+        public ViewResult DemoChart()
     {
       string[] ChartLabels = new string[] { "Africa", "Asia", "Europe", "Latin America", "North America" };
       int[] ChartData = new int[] { 2478, 5267, 734, 784, 433 };
